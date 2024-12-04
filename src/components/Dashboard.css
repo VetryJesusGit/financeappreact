@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+  }
+  
+  .dashboard-container {
+    padding: 20px;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #003399;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+  }
+  
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    border-radius: 8px;
+    font-size: 1.2em;
+  }
+  
+  .yellow {
+    background-color: #f1c40f;
+  }
+  
+  .red {
+    background-color: #e74c3c;
+  }
+  
+  .cyan {
+    background-color: #1abc9c;
+  }
+  
+  .pink {
+    background-color: #e91e63;
+  }
+  
+  .orange {
+    background-color: #e67e22;
+  }
+  
+  .green {
+    background-color: #2ecc71;
+  }
+  
+  .purple {
+    background-color: #9b59b6;
+  }
+  
+  .dark-green {
+    background-color: #27ae60;
+  }
+  
+  .chart-section {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  

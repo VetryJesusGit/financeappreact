@@ -1,0 +1,278 @@
+/* Ensure the app takes up the full height of the screen and prevents unwanted scrolling */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Prevent the entire page from scrolling */
+  font-family: Arial, sans-serif;
+}
+
+/* App container that holds everything */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Header styling - fixed at the top */
+.header {
+  flex-shrink: 0; /* Prevent the header from resizing */
+  height: 60px; /* Fixed height for the header */
+  background-color: #003399;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  position: fixed; /* Keeps the header at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Stretches the header across the screen */
+  z-index: 1000; /* Ensures the header is above other elements */
+}
+
+
+
+/* Content area styling - scrollable */
+.content {
+  flex: 1; /* Fills the remaining space */
+  margin-left: 250px; /* Adjusts for the menu when open */
+  padding: 20px;
+  overflow-y: auto; /* Scrollable vertical content */
+  height: calc(100vh - 60px); /* Full height minus header */
+  box-sizing: border-box; /* Includes padding in height calculations */
+  background-color: #f5f5f5; /* Optional: Light background for content */
+}
+
+/* Content styling when menu is collapsed */
+.content.menu-closed {
+  margin-left: 50px; /* Adjust margin when menu is collapsed */
+}
+
+/* Dropdown button styles in header */
+.dropdown {
+  display: flex;
+  gap: 10px;
+}
+
+.dropdown-button {
+  background-color: white;
+  color: #003399;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dropdown-button:hover {
+  background-color: #dde5ff;
+}
+
+/* Main layout for menu and content */
+.main-layout {
+  display: flex;
+  flex: 1; /* Fills the remaining space below the header */
+  margin-top: 60px; /* Adjusts for the fixed header */
+}
+
+/* Side menu styling - fixed on the left */
+.menu-container {
+  flex-shrink: 0; /* Prevents menu resizing */
+  width: 250px; /* Default width for the menu */
+  height: calc(100vh - 60px); /* Full height minus header */
+  background-color: #003399;
+  color: white;
+  position: fixed; /* Keeps the menu fixed on the left */
+  top: 60px; /* Positioned below the header */
+  left: 0;
+  overflow-y: auto; /* Scrollable if menu content exceeds height */
+  transition: width 0.3s ease-in-out; /* Smooth transition for expanding/collapsing */
+}
+
+/* Menu styling when collapsed */
+.menu-container.closed {
+  width: 50px; /* Shrinks menu when collapsed */
+}
+
+/* Toggle button for collapsing/expanding menu */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* Menu links and styling */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 10px 20px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+}
+
+.menu a:hover {
+  background-color: #002277;
+  border-radius: 4px;
+}
+
+/* Scrollbar styling (optional) for content and menu */
+.content::-webkit-scrollbar,
+.menu-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content::-webkit-scrollbar-thumb,
+.menu-container::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 4px;
+}
+
+.content::-webkit-scrollbar-thumb:hover,
+.menu-container::-webkit-scrollbar-thumb:hover {
+  background: #aaaaaa;
+}
+
+
+.group-page {
+  padding: 20px;
+}
+
+h2, h3 {
+  color: #003399;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Add space between fields */
+  margin-bottom: 20px;
+}
+
+.form-field {
+  display: flex;
+  align-items: center; /* Align label and input horizontally */
+  gap: 10px; /* Space between label and input */
+  margin-bottom: 10px; /* Space between fields */
+}
+
+.form-field label {
+  font-weight: bold;
+  text-align: right; /* Align the label to the right */
+  width: 150px; /* Fixed width for labels */
+}
+
+input, select, button {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input, select {
+  width: 240px; /* Set the input field width to ~30 characters */
+}
+
+button {
+  background-color: #003399;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #002277;
+}
+
+.form-actions {
+  margin-top: 20px;
+}
+
+.list-container {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  background-color: #003399;
+  color: white;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .form-container {
+    gap: 15px;
+  }
+
+  .form-field {
+    flex-direction: column; /* Stack label and input vertically */
+    margin-bottom: 15px; /* Add space between fields */
+  }
+
+  .form-field label {
+    text-align: left; /* Align label to the left in mobile view */
+    width: auto; /* Remove fixed width */
+  }
+
+  input, select {
+    width: 100%; /* Make input fields full width on mobile */
+  }
+
+  table {
+    font-size: 14px; /* Reduce font size for table */
+    overflow-x: auto; /* Allow horizontal scrolling if the table overflows */
+  }
+
+  table th, table td {
+    padding: 6px;
+  }
+
+  /* Buttons */
+  button {
+    width: 100%; /* Make buttons full width on mobile */
+  }
+}
+
+/* Extra Small Devices (Phones in Portrait Mode) */
+@media screen and (max-width: 480px) {
+  h2, h3 {
+    font-size: 18px; /* Reduce font size on small screens */
+  }
+
+  .form-container {
+    gap: 10px;
+  }
+
+  .form-field {
+    margin-bottom: 10px; /* Adjust spacing between fields */
+  }
+
+  input, select {
+    width: 100%; /* Make input fields full width */
+  }
+
+  button {
+    padding: 12px;
+  }
+}
